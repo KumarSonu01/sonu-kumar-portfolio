@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #F8F9FA;
+    color: #111113;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  ::selection {
+    background-color: #8B5CF6;
+    color: #FFFFFF;
+  }
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-dark {
+  background: rgba(18, 18, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F3F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Thin Scrollbar for Tech Stack Card */
+.custom-tech-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-tech-scrollbar::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 9999px;
+}
+.custom-tech-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+.custom-tech-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
+
+/* Serif Headline Font Utility */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Image reveal animations */
+@keyframes revealFromRight {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes revealFromBottom {
+  0% {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-reveal-right {
+  animation: revealFromRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-reveal-bottom {
+  animation: revealFromBottom 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/*=========================================================
+ Vertical Tech Stack Marquee 
+========================================================= */
+
+.skill-marquee {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  animation: verticalSkillMarquee 25s linear infinite;
+  will-change: transform;
+}
+
+.skill-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes verticalSkillMarquee {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-marquee {
+    animation: none;
+  }
+}
+
+/* =========================================================
+   TECHNOLOGY HORIZONTAL MARQUEE
+========================================================= */
+
+.tech-marquee {
+  display: flex;
+  width: max-content;
+  animation: techMarquee 30s linear infinite;
+  will-change: transform;
+}
+
+.tech-marquee:hover {
+  animation-play-state: paused;
+}
+
+.tech-marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  flex-shrink: 0;
+}
+
+@keyframes techMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .tech-marquee-content {
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .tech-marquee {
+    animation-duration: 24s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee {
+    animation: none;
+  }
+}
