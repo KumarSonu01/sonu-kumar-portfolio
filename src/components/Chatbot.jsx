@@ -4,11 +4,13 @@ import {
   User,
   X,
   ExternalLink,
+  LoaderCircle,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 const aizenAvatar = "/aizen-avatar.jpg";
 const aizenBackground = "/aizen-background.jpg";
+const aizenThinkingVideo = "/Aizen.mp4";
 
 const API_URL =
   import.meta.env.VITE_API_URL || "http://localhost:5000";
@@ -372,12 +374,26 @@ export default function Chatbot() {
                     Aizen
                   </h3>
 
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-green-500" />
+                  {/* DYNAMIC STATUS */}
 
-                    <span className="text-xs text-gray-500">
-                      The Intelligence Behind the Interface
-                    </span>
+                  <div className="flex items-center gap-1.5">
+                    {isLoading ? (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+
+                        <span className="text-xs text-gray-500">
+                          Thinking...
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="w-2 h-2 rounded-full bg-green-500" />
+
+                        <span className="text-xs text-gray-500">
+                          Online
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -661,17 +677,19 @@ export default function Chatbot() {
                   })}
 
                   {/* =================================================
-                      TYPING INDICATOR
+                      COFFEE-DRINKING AIZEN THINKING INDICATOR
                   ================================================= */}
 
                   {isLoading && (
                     <div className="flex justify-start">
-                      <div className="flex gap-2 items-center">
+                      <div className="flex gap-2 items-end">
+
+                        {/* AIZEN THINKING VIDEO */}
 
                         <div
                           className="
-                            w-7
-                            h-7
+                            w-10
+                            h-10
                             rounded-full
                             bg-white
                             border
@@ -681,39 +699,50 @@ export default function Chatbot() {
                             items-center
                             justify-center
                             shrink-0
+                            shadow-sm
                           "
                         >
-                          <img
-                            src={aizenAvatar}
-                            alt="Aizen"
+                          <video
+                            src={aizenThinkingVideo}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
                             className="
                               w-full
                               h-full
                               object-cover
-                              object-center
                             "
                           />
                         </div>
 
+                        {/* THINKING BUBBLE */}
+
                         <div
                           className="
-                            bg-white/65
+                            bg-white/70
                             border
                             border-white/70
-                            backdrop-blur-[2px]
+                            backdrop-blur-[3px]
                             px-4
-                            py-3
+                            py-2.5
                             rounded-2xl
                             rounded-bl-md
                             shadow-sm
                           "
                         >
-                          <div className="flex gap-1">
-                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" />
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs text-gray-500">
+                              Thinking
+                            </span>
 
-                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:150ms]" />
+                            <div className="flex gap-1">
+                              <span className="w-1 h-1 bg-gray-400 rounded-full animate-bounce" />
 
-                            <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:300ms]" />
+                              <span className="w-1 h-1 bg-gray-400 rounded-full animate-bounce [animation-delay:150ms]" />
+
+                              <span className="w-1 h-1 bg-gray-400 rounded-full animate-bounce [animation-delay:300ms]" />
+                            </div>
                           </div>
                         </div>
                       </div>
