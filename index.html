@@ -9,14 +9,22 @@
       content="V-BeTAvSqOjJp_oiXlnDPGrOBu9u1b_Xyov7WrpNEkw"
     />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-50L76TN5F0"></script>
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-50L76TN5F0"
+    ></script>
+
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-50L76TN5F0');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("config", "G-50L76TN5F0");
     </script>
 
     <!-- Favicon -->
@@ -79,7 +87,7 @@
     />
 
     <!-- =====================================================
-         OPEN GRAPH / LINK PREVIEWS
+         OPEN GRAPH / SOCIAL SHARING
     ====================================================== -->
 
     <meta
@@ -112,7 +120,6 @@
       content="en_IN"
     />
 
-    <!-- Add og-image.png to /public -->
     <meta
       property="og:image"
       content="https://sonu-kumar-portfolio-iota.vercel.app/og-image.png"
@@ -186,10 +193,25 @@
          STRUCTURED DATA
     ====================================================== -->
 
+    <!-- Personal Profile -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "@id": "https://sonu-kumar-portfolio-iota.vercel.app/#profile",
+        "url": "https://sonu-kumar-portfolio-iota.vercel.app/",
+        "mainEntity": {
+          "@id": "https://sonu-kumar-portfolio-iota.vercel.app/#person"
+        }
+      }
+    </script>
+
+    <!-- Sonu Kumar Entity -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
+        "@id": "https://sonu-kumar-portfolio-iota.vercel.app/#person",
         "name": "Sonu Kumar",
         "url": "https://sonu-kumar-portfolio-iota.vercel.app/",
         "jobTitle": "Full Stack Developer & Software Engineer",
@@ -219,13 +241,18 @@
       }
     </script>
 
+    <!-- Website -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
+        "@id": "https://sonu-kumar-portfolio-iota.vercel.app/#website",
         "name": "Sonu Kumar",
         "url": "https://sonu-kumar-portfolio-iota.vercel.app/",
-        "description": "Portfolio of Sonu Kumar — Full Stack Developer & Software Engineer."
+        "description": "Portfolio of Sonu Kumar — Full Stack Developer & Software Engineer.",
+        "publisher": {
+          "@id": "https://sonu-kumar-portfolio-iota.vercel.app/#person"
+        }
       }
     </script>
   </head>
