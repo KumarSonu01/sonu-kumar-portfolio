@@ -79,7 +79,8 @@ function PortfolioMain({
     );
 
     sections.forEach((id) => {
-      const element = document.getElementById(id);
+      const element =
+        document.getElementById(id);
 
       if (element) {
         observer.observe(element);
@@ -129,7 +130,6 @@ function PortfolioMain({
         flex
         flex-col
         justify-between
-        overflow-x-hidden
         selection:bg-purple-500
         selection:text-white
       "
@@ -168,10 +168,6 @@ function PortfolioMain({
 
       {/* =====================================================
           SOFT RIGHT-SIDE REVEAL
-
-          This keeps the left side clean while allowing the
-          blob/background to visually come through on the
-          right side of the page.
       ===================================================== */}
 
       <div
@@ -198,10 +194,20 @@ function PortfolioMain({
 
 
       {/* =====================================================
-          NAVBAR
+          STICKY NAVBAR
+          
+          IMPORTANT:
+          The wrapper is sticky, not the Navbar itself.
       ===================================================== */}
 
-      <div className="relative z-30">
+      <div
+        className="
+          sticky
+          top-0
+          z-[100]
+          w-full
+        "
+      >
         <Navbar
           activeSection={activeSection}
           onNavigate={handleNavigate}
