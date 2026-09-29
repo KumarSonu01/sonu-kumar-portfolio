@@ -24,9 +24,31 @@ const groq = new Groq({
 // CORS
 // =========================================================
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:4173",
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      // Allow requests without an Origin header
+      // such as health checks or server-to-server requests.
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(
+        new Error(`CORS blocked for origin: ${origin}`)
+      );
+    },
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
@@ -834,8 +856,6 @@ app.post("/api/chat", async (req, res) => {
 // START SERVER
 // =========================================================
 
-app.listen(PORT, () => {
-  console.log(
-    `🚀 Aizen portfolio AI server running on http://localhost:${PORT}`
-  );
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server running on port ${PORT}`);
 });
