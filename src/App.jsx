@@ -8,6 +8,7 @@ import StackSection from './pages/StackSection';
 import WorkSection from './pages/WorkSection';
 import ExperienceSection from './pages/ExperienceSection';
 import ContactSection from './pages/ContactSection';
+import Chatbot from './components/Chatbot';
 
 function PortfolioMain({ activeSection, setActiveSection }) {
   const navigate = useNavigate();
@@ -79,6 +80,7 @@ function PortfolioMain({ activeSection, setActiveSection }) {
       </main>
 
       <Footer onNavigate={handleNavigate} />
+      <Chatbot />
     </div>
   );
 }
@@ -118,4 +120,22 @@ export default function App() {
       />
     </Routes>
   );
+  return (
+  <div className="min-h-screen flex flex-col justify-between selection:bg-purple-500 selection:text-white">
+    <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
+
+    <main className="flex-grow space-y-6 sm:space-y-10">
+      <HomeSection onNavigate={handleNavigate} />
+      <AboutSection onNavigate={handleNavigate} />
+      <StackSection />
+      <WorkSection onNavigate={handleNavigate} />
+      <ExperienceSection />
+      <ContactSection />
+    </main>
+
+    <Footer onNavigate={handleNavigate} />
+
+    <Chatbot />
+  </div>
+);
 }
