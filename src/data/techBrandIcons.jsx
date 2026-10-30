@@ -151,8 +151,12 @@ export const techBrandIcons = [
   color: '#ED8B00',
   icon: (
     <img
-      src="/icons/java.png"
+      src="/icons/java.webp"
       alt="Java"
+      width="42"
+      height="42"
+      loading="lazy"
+      decoding="async"
       className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
     />
   )
@@ -162,8 +166,12 @@ export const techBrandIcons = [
   color: '#3776AB',
   icon: (
     <img
-      src="/icons/python.png"
+      src="/icons/python.webp"
       alt="Python"
+      width="42"
+      height="42"
+      loading="lazy"
+      decoding="async"
       className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
     />
   )
@@ -173,8 +181,12 @@ export const techBrandIcons = [
   color: '#00599C',
   icon: (
     <img
-      src="/icons/c.png"
+      src="/icons/c.webp"
       alt="C"
+      width="42"
+      height="42"
+      loading="lazy"
+      decoding="async"
       className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
     />
   )
@@ -184,8 +196,12 @@ export const techBrandIcons = [
   color: '#D83B01',
   icon: (
     <img
-      src="/icons/microsoft-office.png"
+      src="/icons/microsoft-office.webp"
       alt="Microsoft Office"
+      width="42"
+      height="42"
+      loading="lazy"
+      decoding="async"
       className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
     />
   )
@@ -195,8 +211,12 @@ export const techBrandIcons = [
   color: '#F2C811',
   icon: (
     <img
-      src="/icons/power-bi.png"
+      src="/icons/power-bi.webp"
       alt="Power BI"
+      width="42"
+      height="42"
+      loading="lazy"
+      decoding="async"
       className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
     />
   )

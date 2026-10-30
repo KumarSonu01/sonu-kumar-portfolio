@@ -4,7 +4,7 @@ import { ExternalLink, ArrowRight, ChevronLeft, ChevronRight, Sparkles } from 'l
 import { projectsData } from '../data/portfolioData';
 import ProjectModal from '../components/ProjectModal';
 
-export default function WorkSection({ onNavigate }) {
+export default function WorkSection() {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedProject, setSelectedProject] = useState(null);
   
@@ -102,6 +102,10 @@ export default function WorkSection({ onNavigate }) {
                     <img 
                       src={project.image} 
                       alt={project.title} 
+                      width="600"
+                      height="400"
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />

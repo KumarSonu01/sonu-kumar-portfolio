@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import {
   Routes,
   Route,
@@ -7,16 +7,15 @@ import {
 } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-
 import HomeSection from "./pages/HomeSection";
-import AboutSection from "./pages/AboutSection";
-import StackSection from "./pages/StackSection";
-import WorkSection from "./pages/WorkSection";
-import ExperienceSection from "./pages/ExperienceSection";
-import ContactSection from "./pages/ContactSection";
 
-import Chatbot from "./components/Chatbot";
+const AboutSection = lazy(() => import("./pages/AboutSection"));
+const StackSection = lazy(() => import("./pages/StackSection"));
+const WorkSection = lazy(() => import("./pages/WorkSection"));
+const ExperienceSection = lazy(() => import("./pages/ExperienceSection"));
+const ContactSection = lazy(() => import("./pages/ContactSection"));
+const Footer = lazy(() => import("./components/Footer"));
+const Chatbot = lazy(() => import("./components/Chatbot"));
 
 function PortfolioMain({
   activeSection,
@@ -45,17 +44,17 @@ function PortfolioMain({
       currentPath &&
       sections.includes(currentPath)
     ) {
-      setTimeout(() => {
-        const element =
-          document.getElementById(currentPath);
-
+      const scrollTimer = setInterval(() => {
+        const element = document.getElementById(currentPath);
         if (element) {
           element.scrollIntoView({
             behavior: "smooth",
             block: "start",
           });
+          clearInterval(scrollTimer);
         }
-      }, 150);
+      }, 50);
+      setTimeout(() => clearInterval(scrollTimer), 2000);
     }
 
     const observerOptions = {
@@ -78,16 +77,25 @@ function PortfolioMain({
       observerOptions
     );
 
-    sections.forEach((id) => {
-      const element =
-        document.getElementById(id);
-
-      if (element) {
-        observer.observe(element);
+    const observeInterval = setInterval(() => {
+      let allObserved = true;
+      sections.forEach((id) => {
+        const element = document.getElementById(id);
+        if (element) {
+          observer.observe(element);
+        } else {
+          allObserved = false;
+        }
+      });
+      if (allObserved) {
+        clearInterval(observeInterval);
       }
-    });
+    }, 100);
 
-    return () => observer.disconnect();
+    return () => {
+      clearInterval(observeInterval);
+      observer.disconnect();
+    };
   }, [location.pathname, setActiveSection]);
 
   // =========================================================
@@ -151,8 +159,12 @@ function PortfolioMain({
         aria-hidden="true"
       >
         <img
-          src="/portfolio-blobs.png"
+          src="/portfolio-blobs.webp"
           alt=""
+          width="950"
+          height="534"
+          fetchPriority="high"
+          decoding="async"
           className="
             absolute
             right-[-90px]
@@ -232,19 +244,19 @@ function PortfolioMain({
           onNavigate={handleNavigate}
         />
 
-        <AboutSection
-          onNavigate={handleNavigate}
-        />
+        <Suspense fallback={null}>
+          <AboutSection
+            onNavigate={handleNavigate}
+          />
 
-        <StackSection />
+          <StackSection />
 
-        <WorkSection
-          onNavigate={handleNavigate}
-        />
+          <WorkSection />
 
-        <ExperienceSection />
+          <ExperienceSection />
 
-        <ContactSection />
+          <ContactSection />
+        </Suspense>
       </main>
 
 
@@ -252,18 +264,20 @@ function PortfolioMain({
           FOOTER
       ===================================================== */}
 
-      <div className="relative z-10">
-        <Footer
-          onNavigate={handleNavigate}
-        />
-      </div>
+      <Suspense fallback={null}>
+        <div className="relative z-10">
+          <Footer
+            onNavigate={handleNavigate}
+          />
+        </div>
 
 
-      {/* =====================================================
-          AIZEN
-      ===================================================== */}
+        {/* =====================================================
+            AIZEN
+        ===================================================== */}
 
-      <Chatbot />
+        <Chatbot />
+      </Suspense>
     </div>
   );
 }

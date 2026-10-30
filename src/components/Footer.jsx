@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUp, Heart, Sparkles } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon, InstagramIcon } from './BrandIcons';
-import Logo from './Logo';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Footer({ onNavigate }) {

@@ -37,6 +37,10 @@ export default function AboutSection({ onNavigate }) {
                 <img
                   src="/assets/sonu-portrait.jpg"
                   alt="Sonu Kumar — About Profile"
+                  width="300"
+                  height="300"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top filter contrast-[1.02] brightness-[1.02]"
                 />
               </motion.div>
@@ -63,9 +67,13 @@ export default function AboutSection({ onNavigate }) {
                 className="w-24 sm:w-28 lg:w-32 drop-shadow-2xl"
               >
                 <img
-                  src="/assets/robot-about-1.png"
+                  src="/assets/robot-about-1.webp"
                   alt="{{ROBOT_IMAGE_ABOUT_1}} — Robot mascot at bottom-left"
                   data-placeholder="{{ROBOT_IMAGE_ABOUT_1}}"
+                  width="574"
+                  height="352"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -100,9 +108,13 @@ export default function AboutSection({ onNavigate }) {
                 className="w-20 sm:w-24 lg:w-28 drop-shadow-xl"
               >
                 <img
-                  src="/assets/robot-about-2.png"
+                  src="/assets/robot-about-2.webp"
                   alt="{{ROBOT_IMAGE_ABOUT_2}} — Robot mascot at top-right"
                   data-placeholder="{{ROBOT_IMAGE_ABOUT_2}}"
+                  width="140"
+                  height="107"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';

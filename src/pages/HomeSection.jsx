@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
   ArrowRight,
-  Sparkles,
   ArrowUpRight,
 } from 'lucide-react';
 
@@ -134,7 +133,7 @@ export default function HomeSection({ onNavigate }) {
                     {stat.value}
                   </span>
 
-                  <span className="text-xs sm:text-sm text-gray-500 font-medium">
+                  <span className="text-xs sm:text-sm text-[#6A707E] font-medium">
                     {stat.label}
                   </span>
 
@@ -172,8 +171,12 @@ export default function HomeSection({ onNavigate }) {
               >
 
                 <img
-                  src="/assets/robot-hero.png"
+                  src="/assets/robot-hero.webp"
                   alt="Floating Sonu Kumar Robot Mascot"
+                  width="508"
+                  height="387"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = 'none';
@@ -211,6 +214,10 @@ export default function HomeSection({ onNavigate }) {
                 <img
                   src="/assets/sonu-portrait.jpg"
                   alt="Sonu Kumar — Developer Portrait"
+                  width="300"
+                  height="300"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-top filter contrast-[1.02] brightness-[1.01]"
                 />
 

@@ -66,8 +66,12 @@ export default function StackSection() {
               className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200/90 group max-w-lg"
             >
               <img
-                src="/assets/robot-about-1.png"
+                src="/assets/robot-about-1.webp"
                 alt="Full Stack 3D Architecture Graphic"
+                width="574"
+                height="352"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.src =
@@ -187,7 +191,7 @@ export default function StackSection() {
                   {/* ================= SECOND SET ================= */}
                   <div className="grid grid-cols-4 gap-2.5 sm:gap-3 py-1">
 
-                    {techBrandIcons.map((item, idx) => (
+                    {techBrandIcons.map((item) => (
                       <motion.div
                         key={`skill-second-${item.name}`}
                         whileHover={{

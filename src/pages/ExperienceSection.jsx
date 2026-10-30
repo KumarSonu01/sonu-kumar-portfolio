@@ -123,6 +123,10 @@ export default function ExperienceSection() {
                 src="/assets/experience-warrior.webp" 
                 alt="{{EXPERIENCE_IMAGE}} — Warrior figure against glowing sky with tower" 
                 data-placeholder="{{EXPERIENCE_IMAGE}}"
+                width="662"
+                height="1430"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-center filter brightness-[0.95] contrast-[1.05]"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop";

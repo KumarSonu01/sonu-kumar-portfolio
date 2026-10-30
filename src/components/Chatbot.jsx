@@ -4,7 +4,6 @@ import {
   User,
   X,
   ExternalLink,
-  LoaderCircle,
 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
@@ -360,6 +359,10 @@ export default function Chatbot() {
                   <img
                     src={aizenAvatar}
                     alt="Aizen"
+                    width="95"
+                    height="100"
+                    loading="lazy"
+                    decoding="async"
                     className="
                       w-full
                       h-full
@@ -451,6 +454,10 @@ export default function Chatbot() {
                 src={aizenBackground}
                 alt=""
                 aria-hidden="true"
+                width="400"
+                height="400"
+                loading="lazy"
+                decoding="async"
                 className="
                   absolute
                   left-1/2
@@ -540,6 +547,10 @@ export default function Chatbot() {
                               <img
                                 src={aizenAvatar}
                                 alt="Aizen"
+                                width="95"
+                                height="100"
+                                loading="lazy"
+                                decoding="async"
                                 className="
                                   w-full
                                   h-full
@@ -917,6 +928,10 @@ export default function Chatbot() {
           <img
             src={aizenAvatar}
             alt="Open Aizen"
+            width="95"
+            height="100"
+            loading="lazy"
+            decoding="async"
             className="
               w-full
               h-full

@@ -10,11 +10,6 @@
     />
 
     <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-50L76TN5F0"
-    ></script>
-
     <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -25,6 +20,13 @@
       gtag("js", new Date());
 
       gtag("config", "G-50L76TN5F0");
+
+      window.addEventListener("load", function () {
+        var script = document.createElement("script");
+        script.async = true;
+        script.src = "https://www.googletagmanager.com/gtag/js?id=G-50L76TN5F0";
+        document.head.appendChild(script);
+      });
     </script>
 
     <!-- Favicon -->
@@ -174,6 +176,13 @@
     ====================================================== -->
 
     <link
+      rel="preload"
+      as="image"
+      href="/portfolio-blobs.webp"
+      fetchpriority="high"
+    />
+
+    <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
     />
@@ -181,6 +190,12 @@
     <link
       rel="preconnect"
       href="https://fonts.gstatic.com"
+      crossorigin
+    />
+
+    <link
+      rel="preconnect"
+      href="https://plus.unsplash.com"
       crossorigin
     />
 

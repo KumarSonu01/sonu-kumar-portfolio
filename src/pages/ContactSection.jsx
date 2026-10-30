@@ -73,7 +73,7 @@ export default function ContactSection() {
           spread: 70,
           origin: { y: 0.6 }
         });
-      } catch (err) {
+      } catch {
         // Confetti is optional
       }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ExternalLink, CheckCircle2, Sparkles, Layers } from 'lucide-react';
+import { X, ExternalLink, Sparkles } from 'lucide-react';
 import { GithubIcon } from './BrandIcons';
 
 export default function ProjectModal({ project, onClose }) {
@@ -31,6 +31,10 @@ export default function ProjectModal({ project, onClose }) {
             <img 
               src={project.image} 
               alt={project.title} 
+              width="800"
+              height="500"
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-black/30" />
